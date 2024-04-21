@@ -2,7 +2,7 @@
 
 //Prompt para obtener nombre
 let nombre = prompt('Hola! Cual es tu nombre?')
-
+//-
 //Prompt para continuar en la pagina
 let respuesta = prompt(`Bienvenido ${nombre}!
 Quieres conocer lo que puedes hacer en esta pagina?
