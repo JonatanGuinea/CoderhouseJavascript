@@ -1,12 +1,79 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarea CoderHouse</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Paginaweb</title>
 </head>
 <body>
-    
+    <h1>Bienvenido a nuestra página de herramientas útiles</h1>
+
+    <div class="contenedor">
+
+        <div class="herramientas" id="herramientas">
+            <h2>PALÍNDROMO</h2>
+
+            <h3>¿Que es un palíndromo?</h3>
+            <p>Un palíndromo es una palabra, frase, número o cualquier secuencia de caracteres que se lee igual de adelante hacia atrás como de atrás hacia adelante. Por ejemplo, "reconocer" y "anita lava la tina" son palíndromos.</p>
+
+            <label for="palabra" id="ingreso-palabra-palindromo">
+                Ingrese la palabra
+            </label>
+            <input type="text" id="palabra">
+            
+            <button id="boton-analizar-palindromo">Analizar</button>
+            
+            <label for="resultado-palabra-palindromo">Resultado
+            </label>
+            <input type="text" id="resultado-palabra-palindromo">
+            
+            
+
+
+        </div>
+
+
+        <div class="herramientas">
+            <h2>SUMAR</h2>
+
+            <h3>¿Que hace esta herramienta?</h3>
+            <p>Suma 2 numeros enteros que ingreses en las siguientes entradas de caracteres</p>
+
+            <label for="primer-numero" id="ingreso-primer-numero">Primer numero a sumar
+            </label>
+            <input type="text" id="primer-numero">
+            
+            <label for="segundo-numero"  id="ingreso-segundo-numero">Segundo numero a sumar
+            </label>
+            <input type="text" id="segundo-numero">
+
+            <button id="boton-sumar">Sumar</button>
+
+            <label for="resultado-suma" id="-ingreso-resultado-suma">
+                Resultado de la suma:
+            </label>
+            <input type="text" id="resultado-suma">
+        </div>
+
+
+        <div class="herramientas ">
+            <h2>ANALIZAR TEXTO</h2>
+            <h3>¿Que hace esta herramienta?</h3>
+            <p>Ésta herramienta recibe un texto aleatorio que escribas y, luego de analizarlo, devuelve la cantidad de: caracteres, palabras y letras del mismo.</p>
+
+            <label for="texto" id="ingresar-texto">Ingresar texto:
+            </label>
+            <input type="text" name="" id="texto">
+            
+            <button id="boton-texto">Analizar Texto</button>
+            
+        </div>
+    </div>
+
     <script src="main.js"></script>
 </body>
+
 </html>
