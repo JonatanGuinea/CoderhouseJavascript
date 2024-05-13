@@ -1,96 +1,97 @@
-// //Prompt para obtener nombre
-// let nombre = prompt('Hola! Cual es tu nombre?')
-// //-
-// //Prompt para continuar en la pagina
-// let respuesta = prompt(`Bienvenido ${nombre}!
-// Quieres conocer lo que puedes hacer en esta pagina?
-// (Responde con el numero indicado)
-// 1-Si
-// 2-No`);
 
 
-// //Creacion de funcion de seleccion de herramientas
-// function herramientas(a) {
-//   if (a == 1) {
-//                 let respuestaHerramienta = prompt(`Perfecto!
-//                 En esta pagina te ofrece las siguientes herramientas
-//                 1- Reconocer una palabra palindromo
-//                 2- Obtener cantidad de caracteres y palabras de cualquier texto
-//                 3- Sumar 2 numeros enteros
-//                 ingresa el numero correspondiente
-//                 a la herramienta que quieras utilizar`
-//                 )
+//Funcioón para verificar si una cadena es un palindromo
+function palindromo(str) {
+  let reversa = str.split('').reverse().join('');
+
+  if (reversa.toLowerCase() == str.toLowerCase()) {
+    
+    document.getElementById('resultado-palabra-palindromo').innerText = `Ingresaste un palíndromo`;
+  } else {
+  
+    document.getElementById('resultado-palabra-palindromo').innerText = 'Esa palabra no es palíndromo';
+  }
+
+  // Guardar la palabra en el localStorage
+  localStorage.setItem('palabraPalindromo', str);
+}
+
+// Accion para el boton de analizar palíndromo
+document.getElementById('boton-analizar-palindromo').addEventListener("click", function() {
+  let palabra = document.getElementById('palabra').value;
+  palindromo(palabra);
+});
+
+// Función para sumar dos numeros enteros
+function sumar(a, b) {
+  let sumatoria = parseInt(a) + parseInt(b);
+
+  document.getElementById('resultado-sumar').innerText = `La suma de ${a} y ${b} es: ${sumatoria}`;
+
+  localStorage.setItem('primerNumeroSumar', a);
+  localStorage.setItem('segundoNumeroSumar', b);
+}
+
+// accion para el botón de sumar
+document.getElementById('boton-sumar').addEventListener("click", function() {
+  let primerNumero = document.getElementById('primer-numero').value;
+  let segundoNumero = document.getElementById('segundo-numero').value;
+  sumar(primerNumero, segundoNumero);
+});
+
+// Función para analizar un texto y contar caracteres, palabras y letras
+function analizarTexto(str) {
+  let cantidadCaracteres = str.split('');
+  let cantidadPalabras = str.split(' ');
+  let cantidadLetras = 0;
+
+  for (let i = 0; i < cantidadCaracteres.length; i++) {
+    if (cantidadCaracteres[i] !== ' ') {
+      cantidadLetras++
+    } else continue
+  }
+
+  let resultado = {
+    caracteres: cantidadCaracteres.length,
+    letras: cantidadLetras,
+    palabras: cantidadPalabras.length
+  }
+
+  document.getElementById('resultado-analizar-texto').innerText = `El texto que ingresaste tiene ${resultado.caracteres} caracteres, ${resultado.letras} letras y ${resultado.palabras} palabras.`;
+
+  localStorage.setItem('textoAnalizar', str);
+}
+
+// accion para el botón de analizar texto
+document.getElementById('boton-analizar-texto').addEventListener("click", function() {
+  let texto = document.getElementById('texto').value;
+  analizarTexto(texto);
+});
 
 
-//                 if (respuestaHerramienta == 1){ 
+// Recuperar la información del localStorage cuando la página se carga
+window.addEventListener("load", function() {
 
-//                       let palabra = prompt(`Has seleccionado la herramienta 1 (Palindromo). Ingresa la palabra a analizar...`)
-//                       palindromo(palabra);
-//                 }
-//                 else if (respuestaHerramienta == 2){
-//                       let texto = prompt(`Has seleccionado la herramienta 2 (Analizar texto). Ingresa el texto a analizar...`)
-//                       analizarTexto(texto)
-//                 }
-//                 else if (respuestaHerramienta == 3) {
-//                       let num1 = prompt(`Has seleccionado la herramienta 3. (Sumatoria) Escribe el primer numero a sumar...`)
-//                       let num2 = prompt(`Perfecto! ahora ingresa el siguiente numero a sumar...`)
-
-//                       sumar(num1, num2);
-
-//                     }
-// } else if (a == 2) {
-
-//     alert(`Ok! Esperamos verte pronto!`)
-
-// } else {
-
-//     alert(`Por favor, ingresa '1' para 'Si' ó '2' para 'No'`)
-
-// }
-
-// }
+  let palabraPalindromo = localStorage.getItem('palabraPalindromo');
+  if (palabraPalindromo) {
+    document.getElementById('palabra').value = palabraPalindromo;
+  }
 
 
-// herramientas(respuesta)
+  let primerNumeroSumar = localStorage.getItem('primerNumeroSumar');
+  if (primerNumeroSumar) {
+    document.getElementById('primer-numero').value = primerNumeroSumar;
+  }
 
 
-// //Funcion para herramienta palindromo
-// function palindromo(str) {
-//   let reversa = str.split('').reverse().join('')
+  let segundoNumeroSumar = localStorage.getItem('segundoNumeroSumar');
+  if (segundoNumeroSumar) {
+    document.getElementById('segundo-numero').value = segundoNumeroSumar;
+  }
 
-//   if (reversa.toLowerCase() == str.toLowerCase()) {
-//     alert(`ingresaste un palindromo`)
-//   }
-//   else {
-//     alert(`Esa palabra no es palindromo`)
-//   }
-// }
-
-
-// //Funcion para herramienta sumar
-
-// function sumar(a, b) {
-//   let sumatoria = parseInt(a) + parseInt(b);
-//   alert(`La suma de ${a} y ${b} es: ${sumatoria}`)
-// }
-
-// //Funcion para herramienta Analizar texto
-// function analizarTexto(str) {
-//   let cantidadCaracteres = str.split('');
-//   let cantidadPalabras = str.split(' ');
-//   let cantidadLetras = 0;
-
-//   for (let i = 0; i < cantidadCaracteres.length; i++){
-//     if (cantidadCaracteres[i] !== ' ') {
-//       cantidadLetras++
-//     }else continue
-//   }
-
-//   let resultado = {
-//     caracteres: cantidadCaracteres.length,
-//     letras: cantidadLetras,
-//     palabras: cantidadPalabras.length
-//   }
-
-//         alert(`El texto que ingresaste, tiene ${resultado.caracteres} caracteres, ${resultado.letras} letras y ${resultado.palabras} palabras.`)
-// }
+  
+  let textoAnalizar = localStorage.getItem('textoAnalizar');
+  if (textoAnalizar) {
+    document.getElementById('texto').value = textoAnalizar;
+  }
+});
